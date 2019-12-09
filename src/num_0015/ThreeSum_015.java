@@ -24,28 +24,28 @@ public class ThreeSum_015 {
 	 */
 	public List<List<Integer>> threeSum(int[] nums){
 		List<List<Integer>> res = new ArrayList<List<Integer>>();
-		if(nums == null || nums.length < 3) return res;
+		if(nums == null || nums.length<3) return res;
 		Arrays.sort(nums);
-		int i = 0;
-		int n = nums.length;
-		while(i < n-2){
+		int i=0;
+		int len = nums.length;
+		while(i<len-2){
 			int base = nums[i];
 			int left = i+1;
-			int right = n-1;
+			int right = len-1;
 			while(left<right){
 				int target = base+nums[left]+nums[right];
 				if(target == 0){
-					List<Integer> tmp = new ArrayList<Integer>();
-					tmp.add(base);
-					tmp.add(nums[left]);
-					tmp.add(nums[right]);
-					res.add(tmp);
+					List<Integer> cur = new ArrayList<Integer>();
+					cur.add(base);
+					cur.add(nums[left]);
+					cur.add(nums[right]);
+					res.add(cur);
 					left = plusLeft(nums, left+1);
-					right = plusRight(nums, right-1);
+					right = minusRight(nums, right-1);
 				}else if(target<0){
 					left = plusLeft(nums, left+1);
 				}else if(target>0){
-					right = plusRight(nums, right-1);
+					right = minusRight(nums, right-1);
 				}
 			}
 			i = plusLeft(nums, i+1);
@@ -54,14 +54,14 @@ public class ThreeSum_015 {
 	}
 	
 	public int plusLeft(int[] nums, int left){
-		while(left==0 || (nums[left]==nums[left-1] && left<nums.length-1)){
+		while(left == 0 || (left<nums.length-1 && nums[left-1] == nums[left])){
 			left++;
 		}
 		return left;
 	}
 	
-	public int plusRight(int[] nums, int right){
-		while(right==nums.length-1 || (nums[right]==nums[right+1] && right>0)){
+	public int minusRight(int[] nums, int right){
+		while(right == nums.length-1 || (right>0 && nums[right] == nums[right+1])){
 			right--;
 		}
 		return right;
