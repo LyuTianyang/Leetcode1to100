@@ -12,6 +12,7 @@ public class ThreeSumCloest_016 {
 	 */
 	public static int threeSumCloest(int[] nums, int target){
 		if(nums == null || nums.length <= 2) return 0;
+		Arrays.sort(nums);
 		int res = nums[0]+nums[1]+nums[2]-target;
 		if(res == 0) return target;
 		int i = 0;

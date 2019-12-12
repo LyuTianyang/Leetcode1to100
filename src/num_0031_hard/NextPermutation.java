@@ -9,7 +9,7 @@ public class NextPermutation {
 	12642 - 14226
 	321 - 123
 	 */
-	public static void nextPermutation(int[] nums) {
+	public static void nextPermutation(int[] nums){
         if(nums == null || nums.length == 0) return;
         int replace = nums.length - 2;
         while(replace >= 0){
@@ -24,9 +24,10 @@ public class NextPermutation {
         while(largerIdx < nums.length && nums[largerIdx] > nums[replace]){
         	largerIdx++;
         }
+        largerIdx = largerIdx-1;
         int tmp = nums[replace];
-        nums[replace] = nums[largerIdx-1];
-        nums[largerIdx-1] = tmp;
+        nums[replace] = nums[largerIdx];
+        nums[largerIdx] = tmp;
         Arrays.sort(nums, replace+1, nums.length);
     }
 	

@@ -14,7 +14,6 @@ public class ValidParentheses {
 				mark.push(s.charAt(i));
 			}else if(s.charAt(i) == ')' || s.charAt(i) == ']' || s.charAt(i) == '}'){
 				if(mark.isEmpty()) return false;
-				
 				char current = mark.pop();
 				if(current == '(' && s.charAt(i) != ')') return false;
 				if(current == '[' && s.charAt(i) != ']') return false;

@@ -20,9 +20,21 @@ public class RemoveDuplicatesFromSortedArray {
 		return slow;
     }
 	
+	public static int removeDuplicates1(int[] nums) {
+		if(nums == null || nums.length == 0) return 0;
+		int count = 1;
+		for(int i = 1; i<nums.length; i++){
+			if(nums[i] != nums[i-1]){
+				count = count+1;
+			}
+		}
+		return count;
+	}
+	
+	
 	public static void main(String[] args) {
 		int[] nums = new int[]{1,1,2,2,3,4,4};
-		int result = removeDuplicates(nums);
+		int result = removeDuplicates1(nums);
 		System.out.println(result);
 	}
 }

@@ -39,13 +39,30 @@ public class RemoveNthFromEnd {
 		return dummy.next;
 	}
 	
+	public static ListNode removeNthFromEnd1(ListNode head, int n){
+		ListNode fast = head;
+		ListNode slow = head;
+		for(int i=0; i<n; i++){
+			if(fast.next != null){
+				fast = fast.next;
+			}
+		}
+		while(fast.next != null){
+			fast = fast.next;
+			slow = slow.next;
+		}
+		slow.next = slow.next.next;
+		return head;
+	}
+	
+	
 	public static void main(String[] args) {
 		ListNode result = new ListNode(1);
 		result.next = new ListNode(2);
 		result.next.next = new ListNode(3);
 		result.next.next.next= new ListNode(4);
 		result.next.next.next.next= new ListNode(5);
-		ListNode result1 = removeNthFromEnd(result, 2);
+		ListNode result1 = removeNthFromEnd1(result, 2);
 		System.out.println(result1);
 		
 		

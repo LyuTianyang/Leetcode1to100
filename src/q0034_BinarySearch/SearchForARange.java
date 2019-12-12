@@ -27,7 +27,7 @@ public class SearchForARange {
         while(start+1 < end){
         	//避免overflow
         	int mid = start + (end - start)/2;
-        	if(nums[mid] >= target){
+        	if(target<=nums[mid]){
         		end = mid;
         	}else{
         		start = mid;
@@ -42,7 +42,7 @@ public class SearchForARange {
         end = nums.length - 1;
         while(start+1 < end){
         	int mid = start + (end - start)/2;
-        	if(nums[mid] > target){
+        	if(target<nums[mid]){
         		end = mid;
         	}else{
         		start = mid;
@@ -56,8 +56,8 @@ public class SearchForARange {
     }
 	
 	public static void main(String[] args) {
-		int[] nums = {5,7,7,8,8,100};
-		int[] result = searchRange(nums,8);
+		int[] nums = {5,6,7,7,7,8,9,10};
+		int[] result = searchRange(nums,7);
 		for(int r : result){
 			System.out.println(r);
 		}

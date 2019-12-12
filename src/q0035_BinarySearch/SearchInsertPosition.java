@@ -32,7 +32,6 @@ public class SearchInsertPosition {
 		
 	}
 	
-	
 	public static void main(String[] args) {
 		int[] nums = {1,3,5,9};
 		int result = searchInsert(nums,2);

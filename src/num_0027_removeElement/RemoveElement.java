@@ -18,9 +18,20 @@ public class RemoveElement {
 		return slow;
 	}
 	
+	public static int removeElement1(int[] nums, int val){
+		if(nums == null || nums.length == 0) return 0;
+		int count = 0;
+		for(int i = 0; i<nums.length; i++){
+			if(nums[i] != val){
+				count = count+1;
+			}
+		}
+		return count;
+	}
+	
 	public static void main(String[] args) {
 		int[] nums = new int[]{0,1,2,2,3,0,4,2};
-		int result = removeElement(nums,2);
+		int result = removeElement1(nums,2);
 		System.out.println(result);
 	}
 }

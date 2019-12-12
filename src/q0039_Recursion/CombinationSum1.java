@@ -21,28 +21,28 @@ public class CombinationSum1 {
 	 */
 	public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> results = new ArrayList<List<Integer>>();
-        List<Integer> currentSeq = new ArrayList<Integer>();
+        List<Integer> curList = new ArrayList<Integer>();
         if(candidates == null || candidates.length == 0 || target<= 0){
         	return results;
         }
         Arrays.sort(candidates);
         int index = 0;
-        helper(candidates, target, index, results, currentSeq);
+        helper(candidates, target, index, results, curList);
         return results;
 	}
 	//数组，target，index(数组下标)，返回值results，currentSeq当前的组合
 	private static void helper(int[] candidates, int target, int index,
-			List<List<Integer>> results, List<Integer> currentSeq) {
+			List<List<Integer>> results, List<Integer> curList) {
 		if(target == 0){
-			results.add(new ArrayList<Integer>(currentSeq));
+			results.add(new ArrayList<Integer>(curList));
 		}else if(target > 0){
 			for(int i = index; i<candidates.length; i++){
 				if(candidates[i] > target) break;
 				//加入当前值candidates[i]
-				currentSeq.add(candidates[i]);
-				helper(candidates,target-candidates[i],i,results,currentSeq);
+				curList.add(candidates[i]);
+				helper(candidates,target-candidates[i],i,results,curList);
 				//去除最新加入的值candidates[i]
-				currentSeq.remove(currentSeq.size()-1);
+				curList.remove(curList.size()-1);
 			}
 		}
 	}

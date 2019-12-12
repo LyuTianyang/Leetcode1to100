@@ -12,8 +12,8 @@ class ListNode{
 }
 
 class NodeComparator implements Comparator<ListNode>{
-	public int compare(ListNode a, ListNode b) {
-		return a.val - b.val;
+	public int compare(ListNode l1, ListNode l2) {
+		return l1.val - l2.val;
 	}
 }
 
@@ -28,29 +28,28 @@ public class MergeKSortedList {
 	 * 使用队列，把首个节点放入队列，使用PriorityQueue和排序规则cmp，小的数排在队列前面
 	 */
 	public static ListNode mergeKSortedList(ListNode[] lists){
-		ListNode head = new ListNode(0);
-		ListNode current = head;
+		ListNode dummy = new ListNode(0);
+		ListNode curr = dummy;
 		if(lists == null || lists.length == 0){
-			return head.next;
+			return dummy.next;
 		}
 		NodeComparator cmp = new NodeComparator();
 		//使用PriorityQueue和排序规则cmp，小的数排在队列前面
-		PriorityQueue<ListNode> pqueue = new PriorityQueue<ListNode>(cmp);
-		for(int i=0 ;i<lists.length;i++){
-			if(lists[i] != null){
-				pqueue.add(lists[i]);
+		PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(cmp);
+		for(int i=0; i<lists.length; i++){
+			queue.add(lists[i]);
+		}
+		while(queue.size() > 0){
+			ListNode tmp = queue.poll();
+			curr.next = new ListNode(tmp.val);
+			curr = curr.next;
+			if(tmp.next != null){
+				queue.add(tmp.next);
 			}
 		}
-		while(pqueue.size() != 0){
-			ListNode node = pqueue.poll();
-			current.next = node;
-			current = current.next;
-			if(node.next!=null){
-				pqueue.add(node.next);
-			}
-		}
-		return head.next;
+		return dummy.next;
 	}
+	
 	public static void main(String[] args) {
 		
 		ListNode l1 = new ListNode(1);
@@ -65,7 +64,7 @@ public class MergeKSortedList {
 		ListNode l3 = new ListNode(4);
 		l3.next = new ListNode(5);
 		l3.next.next = new ListNode(6);
-		l3.next.next.next= new ListNode(7);
+		l3.next.next.next= new ListNode(8);
 		
 		ListNode[] lists = new ListNode[]{l1,l2,l3};
 		
