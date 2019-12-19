@@ -21,6 +21,7 @@ public class TwoSum_001 {
 		}
 		return null;
 	}
+	
 	public static void main(String[] args) {
 		int[] nums = new int[]{1,3,5,6,8};
 		int target = 8;

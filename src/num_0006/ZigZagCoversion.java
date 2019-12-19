@@ -30,7 +30,7 @@ public class ZigZagCoversion {
 			for(int idx = 0; idx<numRows && i<len; idx++){
 				sb[idx].append(c[i++]);
 			}
-			
+			//右下标和左下标都向中间缩进一位
 			for(int idx=numRows-2; idx>=1 && i<len; idx--){
 				sb[idx].append(c[i++]);
 			}

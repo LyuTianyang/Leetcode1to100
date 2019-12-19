@@ -30,20 +30,17 @@ public class StringToIntegerAtoi {
 	     因此返回 INT_MIN (−231) 。
 	 */
 	public static int myAtoi(String str) {
-        str = str.trim();
-        if(str == null || str.length() == 0){
-        	return 0;
-        }
-        char firstChar = str.charAt(0);
-        int sign = 1;//正负号
-        int index = 0;
-        if(firstChar == '+'){
-        	sign = 1;
-        	index++;
-        }else if(firstChar == '-'){
-        	sign = -1;
-        	index++;
-        }
+		if(str == null) return 0;
+		str = str.trim();
+		if(str.length() == 0) return 0;
+		int sign = 1;//正负号
+		int index = 0;
+		if(str.charAt(0) == '-'){
+			sign = -1;
+			index++;
+		}else if(str.charAt(0) == '+'){
+			index++;
+		}
         long res = 0;
         for(int i=index; i<str.length();i++){
         	if(!Character.isDigit(str.charAt(i))){

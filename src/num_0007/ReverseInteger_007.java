@@ -17,6 +17,7 @@ public class ReverseInteger_007 {
 	输出: 21
 	 */
 	public static int reverse(int x){
+		if(-9 <= x && x <= 9) return x;
 		int rev = 0;
 	    while(x!=0){
 	    	int newRev = rev*10 + x%10;
@@ -27,7 +28,6 @@ public class ReverseInteger_007 {
 	    }
 	    return rev;
 	}
-	
 	
 	public static void main(String[] args) {
 		System.out.println(reverse(-12345));

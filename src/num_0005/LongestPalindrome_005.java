@@ -36,6 +36,7 @@ public class LongestPalindrome_005 {
 		}
 		return right-left-1;
 	}
+	
 	public static void main(String[] args) {
 		System.out.println(longestPalindrome("babab"));
 	}
