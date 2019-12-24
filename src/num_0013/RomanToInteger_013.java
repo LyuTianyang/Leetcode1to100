@@ -30,6 +30,6 @@ public class RomanToInteger_013 {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(romanToInt("MDCXII"));
+		System.out.println(romanToInt("CMCMDCXII"));
 	}
 }
