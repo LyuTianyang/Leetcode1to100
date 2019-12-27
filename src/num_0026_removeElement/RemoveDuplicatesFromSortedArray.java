@@ -1,5 +1,7 @@
 package num_0026_removeElement;
 
+import java.util.Arrays;
+
 public class RemoveDuplicatesFromSortedArray {
 
 	/**
@@ -31,6 +33,21 @@ public class RemoveDuplicatesFromSortedArray {
 		return count;
 	}
 	
+	//找出不重复元素的下标
+	public static int findNoneDuplicate(int[] nums) {
+		if(nums == null || nums.length == 1) return -1;
+		Arrays.sort(nums);
+		int n = nums.length;
+		if(nums.length == 1) return 0;
+		if(nums[0] != nums[1]) return 0;
+		for(int i=1; i<n-1; i++){
+			if(nums[i] != nums[i-1] && nums[i]!=nums[i+1]){
+				return i;
+			}
+		}
+		if(nums[n-1]!=nums[n-2]) return n-1;
+		return -1;
+	}
 	
 	public static void main(String[] args) {
 		int[] nums = new int[]{1,1,2,2,3,4,4};

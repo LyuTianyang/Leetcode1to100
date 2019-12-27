@@ -27,11 +27,11 @@ public class ThreeSum_015 {
 		if(nums == null || nums.length<3) return res;
 		Arrays.sort(nums);
 		int i=0;
-		int len = nums.length;
-		while(i<len-2){
+		int n = nums.length;
+		while(i<n-2){
 			int base = nums[i];
 			int left = i+1;
-			int right = len-1;
+			int right = n-1;
 			while(left<right){
 				int target = base+nums[left]+nums[right];
 				if(target == 0){
@@ -71,5 +71,6 @@ public class ThreeSum_015 {
 		int[] nums = new int[]{-2,-2,-1,-1,-1,0,1,2,2,3,3,3};
 		ThreeSum_015 t = new ThreeSum_015();
 		System.out.println(t.threeSum(nums));
+		//[[-2, -1, 3], [-2, 0, 2], [-1, -1, 2], [-1, 0, 1]]
 	}
 }
