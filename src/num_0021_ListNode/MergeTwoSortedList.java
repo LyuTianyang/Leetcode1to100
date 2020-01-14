@@ -19,33 +19,11 @@ public class MergeTwoSortedList {
 	public static ListNode mergeTwoSortedList(ListNode l1, ListNode l2){
 		if(l1 == null) return l2;
 		if(l2 == null) return l1;
-		ListNode head = new ListNode(0);
-		ListNode curr = head;
-		while(l1!=null && l2!=null){
-			if(l1.val<= l2.val){
-				curr.next = l1;
-				curr = curr.next;
-				l1 = l1.next;
-			}else{
-				curr.next = l2;
-				curr = curr.next;
-				l2 = l2.next;
-			}
-		}
-		if(l1 != null){
-			curr.next = l1;
-		}
-		if(l2 != null){
-			curr.next = l2;
-		}
-		return head.next;
-	}
-	
-	public static ListNode mergeTwoSortedList1(ListNode l1, ListNode l2){
 		ListNode dummy = new ListNode(0);
 		ListNode curr = dummy;
 		while(l1 != null && l2 != null){
 			if(l1.val <= l2.val){
+				//curr.next = l1; 这样也可以
 				curr.next = new ListNode(l1.val);
 				l1 = l1.next;
 			}else{
@@ -56,10 +34,8 @@ public class MergeTwoSortedList {
 		}
 		if(l1 != null) curr.next = l1;
 		if(l2 != null) curr.next = l2;
-		
 		return dummy.next;
 	}
-	
 	
 	public static void main(String[] args) {
 		ListNode l1 = new ListNode(1);
@@ -71,7 +47,7 @@ public class MergeTwoSortedList {
 		l2.next.next = new ListNode(6);
 		l2.next.next.next= new ListNode(7);
 		
-		ListNode result = mergeTwoSortedList1(l1, l2);
+		ListNode result = mergeTwoSortedList(l1, l2);
 		System.out.println(result);
 	}
 	

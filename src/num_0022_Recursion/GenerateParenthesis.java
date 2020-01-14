@@ -40,7 +40,7 @@ public class GenerateParenthesis {
 	}
 	
 	public static void main(String[] args) {
-		List<String> res = generateParenthesis(2);
+		List<String> res = generateParenthesis(3);
 		System.out.println(res);
 	}
 }

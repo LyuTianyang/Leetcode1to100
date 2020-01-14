@@ -10,11 +10,11 @@ public class SwapNodeInPairs {
 	
 	/**
 	 * 
-	 * 给出listnode 1-2-3-4-5，得到 1-2-4-3-5
+	 * 给出listnode 1-2-3-4-5，得到2-1-4-3-5
 	 * 
 	 * 假如只对调3-4
 	 * 2.next = 4, 4.next = 3,3.next=5
-	 * 
+	 * 1-2-3-4-5， 1-2-4-3-5
 	 */
 	public static ListNode swapNodeInPairs(ListNode head){
 		ListNode dummy = new ListNode(0);
@@ -26,11 +26,19 @@ public class SwapNodeInPairs {
 		}
 		return dummy.next;
 	}
+	/*public static void swap(ListNode pre){
+		ListNode dummy = pre.next;
+		pre.next = dummy.next;
+		dummy.next = dummy.next.next;
+		pre.next.next = dummy;
+	}*/
+	
 	public static void swap(ListNode pre){
 		ListNode dummy = pre.next;
 		pre.next = dummy.next;
 		dummy.next = dummy.next.next;
 		pre.next.next = dummy;
+		
 	}
 	
 	public static void main(String[] args) {

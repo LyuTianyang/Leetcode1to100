@@ -34,7 +34,7 @@ public class MergeKSortedList {
 			return dummy.next;
 		}
 		NodeComparator cmp = new NodeComparator();
-		//使用PriorityQueue和排序规则cmp，小的数排在队列前面
+		//使用PriorityQueue和排序规则cmp, 小的数排在队列前面, java 1.8之后才能这样写
 		PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(cmp);
 		for(int i=0; i<lists.length; i++){
 			queue.add(lists[i]);
